@@ -1,0 +1,12 @@
+package FireboyWatergirl;
+public class BossRoom extends Room {
+	
+	BossRoom(int ID, int n, int s, int e, int w) { //portal room ID 45
+		super(ID, n, s, e, w);
+		//this.bossHealth = bossHealth;
+	}
+	
+	public void drawBossRoom(String ANSI_PLAYER) {
+		drawRoom(ANSI_PLAYER);
+	}
+}
