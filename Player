@@ -1,0 +1,44 @@
+package FireboyWatergirl;
+import java.util.Scanner;
+
+public class Player extends Creature{
+    	protected String friend ;
+    	protected String ANSI_PLAYER ;//red code
+    	final static String ANSI_BLACK = "\u001B[0m";
+		protected int numOfGems;
+		
+		Player(String name, int hearts, String friend, String ANSI_PLAYER, int numOfGems){
+			super(name, hearts);
+			this.friend = friend;
+			this.ANSI_PLAYER = ANSI_PLAYER ;
+			this.numOfGems = numOfGems;
+		}
+		
+		//Accessor function
+    	public String getName(){
+    		return this.name;
+    	}
+    	public String getFriend(){
+    		return this.friend;
+    	}
+    	public String getANSIPLAYER(){
+    		return this.ANSI_PLAYER;
+    	}
+    	
+    	//Mutator method
+    	public void setInfo (String newName){
+    		if(newName.equals("WG")) {
+    			this.name = "Watergirl";
+    			this.friend = "Fireboy";
+    			this.ANSI_PLAYER = "\u001B[36m";
+    		}
+    	}
+    	
+    	public void setHearts (int newHearts){
+    		this.hearts = newHearts;
+    	}
+    	
+    	public void setNumOfGems (int newNumOfGems){
+    		this.numOfGems = newNumOfGems;
+    	}
+}
