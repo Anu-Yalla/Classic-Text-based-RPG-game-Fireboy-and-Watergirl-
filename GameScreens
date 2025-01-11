@@ -1,0 +1,32 @@
+package FireboyWatergirl;
+import java.util.Scanner;
+
+public class GameScreens {
+	final static String ANSI_BLACK = "\u001B[0m";
+	static String message;
+	static String message2;
+	static String nextScreen = "";//the next gamescreen/gamestate after this one
+	
+	public static void setMessage (String newMessage){
+		message = newMessage;
+	}
+	
+	public static void setNextScreen (String newNextScreen){
+		nextScreen = newNextScreen;
+	}
+	
+	public static void drawScreen(String ANSI_PLAYER) throws InterruptedException {
+		Scanner scan = new Scanner(System.in);
+		int idx = 0;
+		System.out.println(ANSI_PLAYER + "═══════════════════════════════════════════════ 🫧•°🔥°•🫧"
+									  + "═══════════════════════════════════════════════\r\n" + ANSI_BLACK);
+		for (int i = 0; i < message.length(); i++) {
+			System.out.print("" + message.charAt(idx));
+			Thread.sleep(50);
+			idx = ++idx % message.length();
+		}
+		System.out.println(nextScreen + "\r\n");
+		System.out.println(ANSI_PLAYER + "═══════════════════════════════════════════════ 🫧•°🔥°•🫧"
+									  + "═══════════════════════════════════════════════\r\n" + ANSI_BLACK);		
+}
+}
