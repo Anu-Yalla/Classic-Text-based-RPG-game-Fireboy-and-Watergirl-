@@ -1,0 +1,64 @@
+//class for gems, power ups, etc.
+package FireboyWatergirl;
+public class PickUps {
+	int type;
+	
+	PickUps(int type){
+		this.type = type;
+	}
+	
+	public static void drawPickUp(int type) {
+		if(type == 1) {
+			System.out.println("  _____ ____ _____\n"
+					+ "  /    /      \\    \\\n"
+					+ "/____ /_________\\____\\\n"
+					+ "\\    \\          /    /\n"
+					+ "   \\  \\        /  /\n"
+					+ "      \\ \\    / /\n"
+					+ "        \\ \\/ /\n"
+					+ "          \\/");
+		}
+		
+		if(type == 2 ||type == 3) {
+			System.out.println("  _____\n"
+					+ "     `.___,'\n"
+					+ "      (___)\n"
+					+ "      <   >\n"
+					+ "       ) (\n"
+					+ "      /`-.\\\n"
+					+ "     /     \\\n"
+					+ "    / _    _\\\n"
+					+ "   :,' `-.' `:\n"
+					+ "   |         |\n"
+					+ "   :         ;\n"
+					+ "    \\       /\n"
+					+ "     `.___.'");
+			
+			System.out.println(" |~|\r\n"
+							+ "  | |   \r\n"
+							+ ".'   `. \r\n"
+							+ "`.___.' ");
+		}
+	}
+	public static void foundGem() {
+		//is a gem
+		System.out.println("you have found a gem!");
+		P1ayer.setNumOfGems(+1);
+		drawPickUp(1);
+	}
+	
+	public static void foundHealthPotion() {
+		//is a health potion
+		System.out.println("you have found a health potion!");
+		Player.setNumOfHealthPotions(+1);
+		drawPickUp(2);
+	}
+	
+	public static void foundUnknownPotion() {
+		//is a unknown potion
+		System.out.println("you have found an unknown potion!");
+		Player.setNumOfUnknownPotions(+1);
+		drawPickUp(3);
+	}
+	
+}
