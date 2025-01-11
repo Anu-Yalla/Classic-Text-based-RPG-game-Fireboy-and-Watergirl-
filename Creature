@@ -1,0 +1,12 @@
+package FireboyWatergirl;
+
+public class Creature {
+	protected String name;
+	protected int hearts;
+	
+	Creature(String name, int health){
+		this.name = name;
+		this.hearts = hearts;
+	}
+	
+}
