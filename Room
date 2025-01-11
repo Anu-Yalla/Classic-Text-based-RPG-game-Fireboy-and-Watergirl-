@@ -1,0 +1,160 @@
+package FireboyWatergirl;
+
+import java.util.Scanner;
+
+public class Room {
+		final static String ANSI_BLACK = "\u001B[0m";
+		protected int ID;
+		protected int exitNorth;
+		protected int exitEast;
+		protected int exitSouth;
+		protected int exitWest;
+		//Constructor
+		
+		public Room(int ID, int n, int s, int e, int w){
+			this.ID = ID;
+			this.exitNorth = n;
+			this.exitEast = e;
+			this.exitSouth = s;
+			this.exitWest = w;
+		}
+		
+		public void drawRoom(String ANSI_PLAYER) {
+			if(exitNorth != this.ID && exitEast != this.ID && exitSouth != this.ID && exitWest != this.ID) {
+				System.out.println("xxxxx|    |xxxxx\r\n"
+								 + "xxxxx|    |xxxxx\r\n"
+								 + "       "+ANSI_PLAYER+"웃"+ANSI_BLACK+"        \r\n"
+								 + "_____      _____\r\n"
+								 + "xxxxx|    |xxxxx\r\n"
+								 + "xxxxx|    |xxxxx\n");
+				 
+			} else if (exitNorth != this.ID && exitEast != this.ID && exitSouth == this.ID && exitWest != this.ID) {
+				System.out.println("xxxxx    xxxxx\r\n"
+								 + "xxxxx    xxxxx\r\n"
+								 + "       "+ANSI_PLAYER+"웃"+ANSI_BLACK+"       \r\n"
+								 + "               \r\n"
+								 + "xxxxxxxxxxxxxx\r\n"
+								 + "xxxxxxxxxxxxxx\n");
+			} else if (exitNorth != this.ID && exitEast == this.ID && exitSouth != this.ID && exitWest != this.ID) {
+				System.out.println("xxxxx    xxxxx\r\n"
+								 + "xxxxx    xxxxx\r\n"
+								 + "      "+ANSI_PLAYER+"웃"+ANSI_BLACK+"  xxxxx\r\n"
+								 + "         xxxxx\r\n"
+								 + "xxxxx    xxxxx\r\n"
+								 + "xxxxx    xxxxx\n");
+			} else if (exitNorth == this.ID && exitEast != this.ID && exitSouth != this.ID && exitWest != this.ID) {
+				System.out.println("xxxxxxxxxxxxxx\r\n"
+								 + "xxxxxxxxxxxxxx\r\n"
+								 + "       "+ANSI_PLAYER+"웃"+ANSI_BLACK+"      \r\n"
+								 + "              \r\n"
+								 + "xxxxx    xxxxx\r\n"
+								 + "xxxxx    xxxxx\n");
+			} else if (exitNorth != this.ID && exitEast != this.ID && exitSouth != this.ID && exitWest == this.ID) {
+				System.out.println("xxxxx    xxxxx\r\n"
+								 + "xxxxx    xxxxx\r\n"
+								 + "xxxxx         \r\n"
+								 + "xxxxx  "+ANSI_PLAYER+"웃"+ANSI_BLACK+"      \r\n"
+								 + "xxxxx    xxxxx\r\n"
+								 + "xxxxx    xxxxx\n");
+			} else if (exitNorth != this.ID && exitEast == this.ID && exitSouth == this.ID && exitWest != this.ID) {
+				System.out.println("xxxxx    xxxxx\r\n"
+								 + "xxxxx    xxxxx\r\n"
+								 + "      "+ANSI_PLAYER+"웃"+ANSI_BLACK+"  xxxxx\r\n"
+								 + "         xxxxx\r\n"
+								 + "xxxxxxxxxxxxxx\r\n"
+								 + "xxxxxxxxxxxxxx\n");
+			} else if (exitNorth != this.ID && exitEast != this.ID && exitSouth == this.ID && exitWest == this.ID) {
+				System.out.println("xxxxx    xxxxx\r\n"
+								 + "xxxxx    xxxxx\r\n"
+								 + "xxxxx   "+ANSI_PLAYER+"웃"+ANSI_BLACK+"     \r\n"
+								 + "xxxxx         \r\n"
+								 + "xxxxxxxxxxxxxx\r\n"
+								 + "xxxxxxxxxxxxxx\n");
+			} else if (exitNorth == this.ID && exitEast == this.ID && exitSouth != this.ID && exitWest != this.ID) {
+				System.out.println("xxxxxxxxxxxxxx\r\n"
+								 + "xxxxxxxxxxxxxx\r\n"
+								 + "      "+ANSI_PLAYER+"웃"+ANSI_BLACK+"  xxxxx\r\n"
+								 + "         xxxxx\r\n"
+								 + "xxxxx    xxxxx\r\n"
+								 + "xxxxx    xxxxx\n");
+			} else if (exitNorth == this.ID && exitEast != this.ID && exitSouth != this.ID && exitWest == this.ID) {
+				System.out.println("xxxxxxxxxxxxxx\r\n"
+								+ "xxxxxxxxxxxxxx\r\n"
+								+ "xxxxx         \r\n"
+								+ "xxxxx   "+ANSI_PLAYER+"웃"+ANSI_BLACK+"     \r\n"
+								+ "xxxxx    xxxxx\r\n"
+								+ "xxxxx    xxxxx\n");
+			} else if (exitNorth != this.ID && exitEast == this.ID && exitSouth != this.ID && exitWest == this.ID) {
+				System.out.println("xxxxx    xxxxx\r\n"
+								+ "xxxxx    xxxxx\r\n"
+								+ "xxxxx    xxxxx\r\n"
+								+ "xxxxx  "+ANSI_PLAYER+"웃"+ANSI_BLACK+" xxxxx\r\n"
+								+ "xxxxx    xxxxx\r\n"
+								+ "xxxxx    xxxxx\n");
+			} else if (exitNorth == this.ID && exitEast != this.ID && exitSouth == this.ID && exitWest != this.ID) {
+				System.out.println("xxxxxxxxxxxxxx\r\n"
+								+ "xxxxxxxxxxxxxx\r\n"
+								+ "       "+ANSI_PLAYER+"웃"+ANSI_BLACK+"      \r\n"
+								+ "              \r\n"
+								+ "xxxxxxxxxxxxxx\r\n"
+								+ "xxxxxxxxxxxxxx\n");
+			} else if (exitNorth != this.ID && exitEast == this.ID && exitSouth == this.ID && exitWest == this.ID) {
+				System.out.println("xxxxx    xxxxx\r\n"
+								 + "xxxxx    xxxxx\r\n"
+								 + "xxxxx "+ANSI_PLAYER+"웃"+ANSI_BLACK+"  xxxxx\r\n"
+								 + "xxxxx    xxxxx\r\n"
+								 + "xxxxxxxxxxxxxx\r\n"
+								 + "xxxxxxxxxxxxxx\n");
+			} else if (exitNorth == this.ID && exitEast != this.ID && exitSouth == this.ID && exitWest == this.ID) {
+				System.out.println("xxxxxxxxxxxxxx\r\n"
+								 + "xxxxxxxxxxxxxx\r\n"
+								 + "xxxxx   "+ANSI_PLAYER+"웃"+ANSI_BLACK+"     \r\n"
+								 + "xxxxx         \r\n"
+								 + "xxxxxxxxxxxxxx\r\n"
+								 + "xxxxxxxxxxxxxx\n");
+			} else if (exitNorth == this.ID && exitEast == this.ID && exitSouth != this.ID && exitWest == this.ID) {
+				System.out.println("xxxxxxxxxxxxxx\r\n"
+						 		 + "xxxxxxxxxxxxxx\r\n"
+						 		 + "xxxxx    xxxxx\r\n"
+						 		 + "xxxxx  "+ANSI_PLAYER+"웃"+ANSI_BLACK+" xxxxx\r\n"
+						 		 + "xxxxx    xxxxx\r\n"
+						 		 + "xxxxx    xxxxx\n");
+			} else if (exitNorth == this.ID && exitEast == this.ID && exitSouth == this.ID && exitWest != this.ID) {
+				System.out.println("xxxxxxxxxxxxxx\r\n"
+						 		 + "xxxxxxxxxxxxxx\r\n"
+						 		 + "         xxxxx\r\n"
+						 		 + "    "+ANSI_PLAYER+"웃"+ANSI_BLACK+"    xxxxx\r\n"
+						 		 + "xxxxxxxxxxxxxx\r\n"
+						 		 + "xxxxxxxxxxxxxx\n");
+			}
+		}
+
+		public String chooseExit() {
+			String movement;
+			System.out.println("Where would you like to move? (N, E, S, W) or V to visit store");
+			Scanner scan = new Scanner(System.in);
+			movement = scan.nextLine();
+			if (movement.equals("V")) {
+				Store.store();
+			}
+			return movement;
+		}
+
+		public void moveRoom(String chooseExitReturn) {
+			// takes return value of movement and adds it to the room to move player to next
+			// room
+			if (chooseExitReturn.equals("N") && Main.currentRoom != this.exitNorth) {
+				Main.currentRoom = this.exitNorth;
+			} else if (chooseExitReturn.equals("E") && Main.currentRoom != this.exitEast) {
+				Main.currentRoom = this.exitEast;
+			} else if (chooseExitReturn.equals("S") && Main.currentRoom != this.exitSouth) {
+				Main.currentRoom = this.exitSouth;
+			} else if (chooseExitReturn.equals("W") && Main.currentRoom != this.exitWest) {
+				Main.currentRoom = this.exitWest;
+			}else {
+				System.out.println("No Room Found for Selected Direction... Try Again");
+				Main.previousRoom = Main.currentRoom;
+			}
+			System.out.println("~~~you are now in room #" + Main.currentRoom + "~~~");
+		}
+}
